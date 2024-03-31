@@ -21,16 +21,29 @@
 @* <button class="btn btn-primary" @onclick="IncrementCount">Click me</button> *@
 <button class="btn btn-primary" @onclick="() => currentCount++">Click me</button>
 
+<input @onchange="InputChanged" />
+<p>@message</p>
+
 @code {
     private int currentCount = 0;
 
     [Parameter]
     public int IncrementAmount {get;set;} = 1;
-    
+
     public string[] items = { "item1", "item2", "item3" };
 
     private void IncrementCount()
     {
         currentCount += IncrementAmount;
+    }
+
+    private string message = "";
+
+    private void InputChanged(ChangeEventArgs e)
+    {
+        if(e != null && e.Value != null)
+        {
+            message = (string)e.Value;
+        }        
     }
 }
