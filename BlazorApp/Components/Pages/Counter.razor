@@ -11,6 +11,13 @@
  <p>You Win!</p>     
 }
 
+<ul>
+    @foreach(var item in items)
+    {
+        <li>@item</li>
+    }
+</ul>
+
 <button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
 
 @code {
@@ -18,6 +25,8 @@
 
     [Parameter]
     public int IncrementAmount {get;set;} = 1;
+    
+    public string[] items = { "item1", "item2", "item3" };
 
     private void IncrementCount()
     {
