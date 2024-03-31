@@ -24,6 +24,10 @@
 <input @onchange="InputChanged" />
 <p>@message</p>
 
+<input @bind="text"/>
+<button @onclick="() => text = string.Empty">Clear</button>
+<p>@text</p>
+
 @code {
     private int currentCount = 0;
 
@@ -46,4 +50,6 @@
             message = (string)e.Value;
         }        
     }
+
+    private string text = "";
 }
